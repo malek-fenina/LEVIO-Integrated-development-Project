@@ -1,0 +1,119 @@
+﻿@model IdentityServer.Models.QuestionModel
+
+@{
+    ViewBag.Title = "Create Question";
+}
+
+<h2>Create Qestion</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Create Question</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <table width="100%">
+                <td>
+                    @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+                    </div>
+                </td>
+            </table>
+        </div>
+
+        <div class="form-group">
+            <table width="100%">
+                <td>
+                    @Html.LabelFor(model => model.choice1, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.choice1, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.choice1, "", new { @class = "text-danger" })
+                    </div>
+                </td>
+            </table>
+        </div>
+
+        <div class="form-group">
+            <table width="100%">
+                <td>
+                    @Html.LabelFor(model => model.choice2, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.choice2, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.choice2, "", new { @class = "text-danger" })
+                    </div>
+                </td>
+            </table>
+        </div>
+
+        <div class="form-group">
+            <table width="100%">
+                <td>
+                    @Html.LabelFor(model => model.choice3, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.choice3, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.choice3, "", new { @class = "text-danger" })
+                    </div>
+                </td>
+                </table>
+        </div>
+
+        <div class="form-group">
+            <table width="100%">
+                <td>
+                    @Html.LabelFor(model => model.ValidChoise, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ValidChoise, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ValidChoise, "", new { @class = "text-danger" })
+                    </div>
+                </td>
+            </table>
+        </div>
+
+        <div class="form-group">
+            <table width="100%">
+                <td>
+                    @*@Html.LabelFor(model => model.TestId, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Test Type
+                </td>
+                <td>
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.TestId, Model.TestL)
+                        @Html.ValidationMessageFor(model => model.TestId, "", new { @class = "text-danger" })
+                    </div>
+                </td>
+            </table>
+        </div>
+
+
+        <table width="100%">
+            <td>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create"  class="btn btn-success" />
+                    </div>
+                </div>
+                </td>
+            </table>
+    </div>
+
+    <div class="form-actions no-color">
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+}
+

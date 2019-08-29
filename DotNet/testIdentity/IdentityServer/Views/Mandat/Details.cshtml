@@ -1,0 +1,66 @@
+﻿@model Domain.Entity.Mandat
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Mandat</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.idProject)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.idProject)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.IdRessource)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IdRessource)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.date_debut)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.date_debut)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.date_fin)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.date_fin)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.NomMandat)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NomMandat)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.idMandat }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

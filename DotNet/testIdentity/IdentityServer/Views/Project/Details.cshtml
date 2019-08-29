@@ -1,0 +1,69 @@
+﻿@model IdentityServer.Models.Project
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+
+    <div>
+        <h4>Project</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nom)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nom)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Date_Debut)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date_Debut)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Date_Fin)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date_Fin)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NbrRessourceTotal)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NbrRessourceTotal)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NbrRessourceLevio)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NbrRessourceLevio)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Image)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Image)
+            </dd>
+            
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.idProject }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+    </body>
+    </html>

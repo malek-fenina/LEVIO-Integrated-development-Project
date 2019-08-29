@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Domain.Entity.Application>
+
+@{
+    ViewBag.Title = "All Applications";
+}
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>
+
+                <div>
+                    Please type the name of the project:  @Html.TextBox("search")
+                    <input type="submit" value="Search" id="submit"  class="btn btn-success"/>
+
+                </div>
+
+            </td>
+        </tr>
+
+    </table>
+}
+<h2>All Applications</h2>
+
+@*<p>
+    @Html.ActionLink("Send New", "Create")
+</p>*@
+
+<table class="table">
+    <tr>
+        <th>
+            Interview Date
+        </th>
+        <th></th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Description)*@
+            Applicant Name and Experience Descriptions
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.IdUser)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.ActionLink("Fix The Interview Date", "Edit2", new { id = item.Id })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.IdUser)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.State)
+        </td>
+
+        <td>
+            @Html.ActionLink("Change States", "Edit", new { id = item.Id }) @*|
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |*@
+        </td>
+    </tr>
+}
+
+</table>

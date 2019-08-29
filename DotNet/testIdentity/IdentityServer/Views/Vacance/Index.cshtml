@@ -1,0 +1,60 @@
+﻿@model IEnumerable<IdentityServer.Models.Vacance>
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date_Debut)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Date_Fin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.typeholiday)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RessourceName)
+            </th>
+          
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_Debut)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_Fin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.typeholiday)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RessourceName)
+            </td>
+          
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.VacanceId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.VacanceId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.VacanceId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

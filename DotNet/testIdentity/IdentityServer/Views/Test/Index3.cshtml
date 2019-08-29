@@ -1,0 +1,59 @@
+﻿@model IEnumerable<IdentityServer.Models.QuestionModel>
+
+@{
+    ViewBag.Title = "Tests";
+}
+
+<h2>Tests Technical</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.choice1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.choice2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.choice3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValidChoise)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeTest)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subject)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.choice1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.choice2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.choice3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValidChoise)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeTest)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) 
+        </td>
+    </tr>
+}
+
+</table>
+@Html.ActionLink("Print Technical Test", "PrintViewToPdf2")

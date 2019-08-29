@@ -1,0 +1,80 @@
+﻿@model Domain.Entity.Project
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Project</h4>
+        <hr />
+        @*<dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nom)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Nom)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Date_Debut)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Date_Debut)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Date_Fin)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Date_Fin)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.NbrRessourceTotal)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NbrRessourceTotal)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.NbrRessourceLevio)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NbrRessourceLevio)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Image)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Image)
+            </dd>
+    
+        </dl>*@
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

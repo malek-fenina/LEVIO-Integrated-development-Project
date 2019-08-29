@@ -1,0 +1,105 @@
+﻿@model IEnumerable<IdentityServer.Models.Project>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste des projets</h2>
+
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>
+
+                <div>
+                    Please type the name of the project:  @Html.TextBox("searchString")
+                    <input type="submit" value="Search" id="submit" />
+
+                </div>
+
+            </td>
+    </tr>
+
+    </table>
+
+}
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date_Debut)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date_Fin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NbrRessourceTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NbrRessourceLevio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.projectTypes)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompetenceName)
+            </th>
+        <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_Debut)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_Fin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NbrRessourceTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NbrRessourceLevio)
+            </td>
+            <td>
+                @{string path = "~/Content/Upload/" + @item.Image;}
+                @*enlever label for pour afficher seulement l'image*@
+                <img src="@Url.Content(path)" width="50" height="50" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.projectTypes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompetenceName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.idProject }) |
+                @Html.ActionLink("Details", "Details", new { id=item.idProject }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.idProject })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<IdentityServer.Models.QuestionModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>IndexPdfTh</title>
+</head>
+<body>
+
+    <table class="table" border="1">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.choice1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.choice2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.choice3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValidChoise)
+            </th>
+
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.choice1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.choice2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.choice3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValidChoise)
+            </td>
+            <td>
+               
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

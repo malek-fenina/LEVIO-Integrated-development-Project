@@ -1,0 +1,55 @@
+﻿@model IdentityServer.Models.Vacance
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Vacance</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Date_Debut)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Date_Debut)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Date_Fin)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Date_Fin)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.typeholiday)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.typeholiday)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.RessourceName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.RessourceName)
+            </dd>
+    
+           
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.VacanceId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

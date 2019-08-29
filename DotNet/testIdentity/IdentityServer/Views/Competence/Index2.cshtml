@@ -1,0 +1,52 @@
+﻿@model IEnumerable<IdentityServer.Models.Competence>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index2</title>
+</head>
+<body>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Label)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dificulty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RessourceName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idRessource)
+            </th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Label)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dificulty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RessourceName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idRessource)
+            </td>
+ 
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

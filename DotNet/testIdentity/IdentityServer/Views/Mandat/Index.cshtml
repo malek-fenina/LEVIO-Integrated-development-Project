@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Domain.Entity.Mandat>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Historique</h2>
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>
+
+                <div>
+                    Please type the name of the mandat:  @Html.TextBox("search")
+                    <input type="submit" value="Search" id="submit" />
+
+                </div>
+
+            </td>
+        </tr>
+
+    </table>
+}
+<p>
+    @Html.ActionLink("Assignation", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idProject)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdRessource)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_debut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_fin)
+        </th>
+     
+        <th>@Html.DisplayNameFor(model => model.NomMandat)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idProject)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdRessource)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_debut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_fin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomMandat)
+        </td>
+       
+        <td>
+
+            @Html.ActionLink("Price" , "Calculer", new { id = item.idMandat }) |
+            @Html.ActionLink("Notification", "Email", new { id = item.idMandat }) |
+
+            @Html.ActionLink("Edit", "Edit", new { id=item.idMandat }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idMandat }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idMandat })
+        </td>
+    </tr>
+}
+
+</table>

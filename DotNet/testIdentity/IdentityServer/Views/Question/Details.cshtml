@@ -1,0 +1,58 @@
+﻿@model Domain.Entity.Question
+
+@{
+    ViewBag.Title = "Details Question";
+}
+
+<h2>Details Question</h2>
+
+<div>
+    <h4>Question</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.choice1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.choice1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.choice2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.choice2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.choice3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.choice3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValidChoise)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValidChoise)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

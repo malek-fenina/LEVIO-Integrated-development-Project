@@ -1,0 +1,180 @@
+﻿<html>
+<head>
+
+    <script src="~/Scripts/exporting.js"></script>
+    <script src="~/Scripts/export-data.js"></script>
+    <script src="~/Scripts/highcharts.js"></script>
+
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/Chart.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+    <style>
+        #chart_container {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #ddd;
+            padding: 1px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+
+    @*<div id="panel-body">
+            <canvas id="bar_chart"></canvas>
+
+            <script>
+                var repartitonProjectsArray=@Html.Raw(Json.Encode(ViewBag.repartitonProjects));
+                var etatsproj=@Html.Raw(Json.Encode(ViewBag.etatsproj));
+                var ctx=$("#bar_chart");
+                var barChart=new Chart(ctx,{
+                    type:'bar',
+                    data:{
+                        labels:etatsproj ,
+                        datasets:[{
+                            label:"number of projects by state",
+                            data:repartitonProjectsArray,
+                            backgroundColor:["rgba(242, 166, 54, .5)","rgba(154,65,72,.5)","(54,25,92,.5)"],
+                            borderColor:["rgb(242, 166, 54)","rgb(154,65,72)","(54,25,92)"],
+                            borderWidth:1
+                        }]
+
+                    },
+                    options:{
+                        maintainAspectsRatio:false,
+                        scales:{
+                            yAxes:[{
+                                ticks:{
+                                    beginAtZero:true
+                                }}]}
+                    }
+                });
+               // bar_chart.remove
+            </script>
+        </div>*@
+
+    <div class="tab-pane" id="chartjs">
+        <h3>General View</h3>
+        <div class="form-panel">
+            <div class="steps pn">
+
+                <div class="row mt">
+                    <label for="op1" class="pull-left">Users  number:  @ViewBag.nbUsers</label>
+                    <label for="op2" class="pull-left">Resources  number: @ViewBag.nombreResource</label>
+                    <label for="op2" class="pull-left">Projects  number: @ViewBag.nbprojects</label>
+                    <label for="op2" class="pull-left">Available Resources  number: @ViewBag.resAv/@ViewBag.nombreResource</label>
+                    <label for="op2" class="pull-left">Clients number: @ViewBag.clientss</label>
+                </div>
+            </div>
+        </div>
+        <p></p>
+
+        <div class="row mt">
+            <div class="col-lg-11">
+                <div class="content-panel">
+                    <h4><i class="fa fa-angle-right"></i> Number of projects by states</h4>
+                    <div class="panel-body text-center">
+                        @*<canvas id="bar" height="300" width="400" style="width: 400px; height: 300px;"></canvas>*@
+
+                        <canvas id="b_chart"></canvas>
+
+                        <script>
+                                var repartitonProjectsArray=@Html.Raw(Json.Encode(ViewBag.repartitonProjects));
+                                var etatsproj=@Html.Raw(Json.Encode(ViewBag.etatsproj));
+                                var ctx=$("#b_chart");
+                                var bChart=new Chart(ctx,{
+                                    type:'bar',
+                                    data:{
+                                        labels:etatsproj ,
+                                        datasets:[{
+                                            label:"number of projects by state",
+                                            data:repartitonProjectsArray,
+                                            backgroundColor:["rgba(242, 166, 54, .5)","rgba(154,65,72,.5)","(54,25,92,.5)"],
+                                            borderColor:["rgb(242, 166, 54)","rgb(154,65,72)","(54,25,92)"],
+
+                                        }]
+
+                                    },
+                                    options:{
+                                        maintainAspectsRatio:false,
+                                        scales:{
+                                            yAxes:[{
+                                                ticks:{
+                                                    beginAtZero:true
+                                                }}]}
+                                    }
+                                });
+                                // bar_chart.remove
+                        </script>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row mt">
+            <div class="col-lg-11">
+
+                <div class="content-panel">
+                    <h4><i class="fa fa-angle-right"></i>  Number of Resources by clients</h4>
+                    <div class="panel-body text-center">
+                        @*<canvas id="bar" height="300" width="400" style="width: 400px; height: 300px;"></canvas>*@
+
+                        <canvas id="bar_chart"></canvas>
+
+                        <script>
+                            var repArray=@Html.Raw(Json.Encode(ViewBag.rep));
+                            var clientsNames=@Html.Raw(Json.Encode(ViewBag.clientsNames));
+                            var ctx=$("#bar_chart");
+                            var barChart=new Chart(ctx,{
+                                type:'bar',
+                                data:{
+                                    labels:clientsNames,
+                                    datasets:[{
+                                        label:"nombre de ressource  chez les clients",
+                                        data:repArray,
+                                        backgroundColor:["rgba(242, 166, 54, .5)","rgba(154,65,72,.5)","(54,25,92,.5)"],
+                                        borderColor:["rgb(242, 166, 54)","rgb(154,65,72)","(54,25,92)"],
+                                        borderWidth:1
+                                    }]
+
+                                },
+                                options:{
+                                    maintainAspectsRatio:false,
+                                    scales:{
+                                        yAxes:[{
+                                            ticks:{
+                                                beginAtZero:true
+                                            }}]}
+                                }
+                            });
+                            // bar_chart.remove
+                        </script>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

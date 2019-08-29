@@ -1,0 +1,68 @@
+﻿@model IEnumerable<IdentityServer.Models.MessageModels>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+   
+       <p>
+    @Html.ActionLink("Create New", "Create")
+       </p>
+   
+
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Contenu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Received)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.messagetype)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contenu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Received)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.messagetype)
+            </td>
+            <td>
+
+                @Html.ActionLink("Details", "Details", new { id=item.idMessage }) |
+               @if (item.Date >= DateTime.Now && item.Received==false && item.messagetype!=IdentityServer.Models.MessageModelType.Reponse)
+               {
+                @Html.ActionLink("Edit", "Edit", new { id = item.idMessage })
+                @Html.ActionLink("Delete", "Delete", new { id = item.idMessage })
+               }
+               @* @if (User.Identity.Equals(item.users))
+        {
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Recived" class="btn btn-default" />
+            </div>
+        }*@
+        </td>
+    </tr>
+}
+
+</table>

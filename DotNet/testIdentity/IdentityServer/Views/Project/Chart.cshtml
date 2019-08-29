@@ -1,0 +1,77 @@
+﻿<html>
+<head>
+
+    <script src="~/Scripts/export-data.js"></script>
+    <script src="~/Scripts/exporting.js"></script>
+    <script src="~/Scripts/highcharts.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <div class="col-lg-6">
+        <div class="content-panel">
+            <h4><i class="fa fa-angle-right"></i> Pie</h4>
+            <div class="panel-body text-center">
+                <canvas id="container" height="300" width="400" style="width: 400px; height: 300px;"></canvas>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+
+                          Highcharts.chart('container', {
+                              chart: {
+                                  plotBackgroundColor: null,
+                                  plotBorderWidth: null,
+                                  plotShadow: false,
+                                  type: 'pie'
+                              },
+                              title: {
+                                  text: 'Number of resource levio relative to total resource '
+                              },
+                              tooltip: {
+                                  pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                              },
+                              plotOptions: {
+                                  pie: {
+                                      allowPointSelect: true,
+                                      cursor: 'pointer',
+                                      dataLabels: {
+                                          enabled: true,
+                                          format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                                          style: {
+                                              color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                          }
+                                      }
+                                  }
+                              },
+                              series: [{
+                                  name: 'Brands',
+                                  colorByPoint: true,
+                                  data: [{
+                                      name: 'Number of Ressources Levio',
+                                      y: @ViewBag.nbr,
+                                  }, {
+                                      name: 'Number of Ressources Total',
+                                      y: @ViewBag.nbr1
+                                      }]
+                              }]
+                          });
+
+
+    </script>
+
+
+</body>
+
+
+</html>
